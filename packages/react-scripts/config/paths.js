@@ -14,8 +14,10 @@ const url = require('url');
 
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebook/create-react-app/issues/637
-const appDirectory = fs.realpathSync(process.cwd());
-const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
+const rootDirectory = fs.realpathSync(process.cwd());
+const resolveApp = relativePath =>
+  path.resolve(rootDirectory, 'src/client', relativePath);
+const resolveRoot = relativePath => path.resolve(rootDirectory, relativePath);
 
 const envPublicUrl = process.env.PUBLIC_URL;
 
@@ -80,16 +82,16 @@ module.exports = {
   appBuild: resolveApp('build'),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
-  appIndexJs: resolveModule(resolveApp, 'src/index'),
-  appPackageJson: resolveApp('package.json'),
-  appSrc: resolveApp('src'),
+  appIndexJs: resolveModule(resolveApp, 'index'),
+  appPackageJson: resolveRoot('package.json'),
+  appSrc: resolveApp('.'),
   appTsConfig: resolveApp('tsconfig.json'),
-  yarnLockFile: resolveApp('yarn.lock'),
-  testsSetup: resolveModule(resolveApp, 'src/setupTests'),
-  proxySetup: resolveApp('src/setupProxy.js'),
-  appNodeModules: resolveApp('node_modules'),
-  publicUrl: getPublicUrl(resolveApp('package.json')),
-  servedPath: getServedPath(resolveApp('package.json')),
+  yarnLockFile: resolveRoot('yarn.lock'),
+  testsSetup: resolveModule(resolveApp, 'setupTests'),
+  proxySetup: resolveApp('setupProxy.js'),
+  appNodeModules: resolveRoot('node_modules'),
+  publicUrl: getPublicUrl(resolveRoot('package.json')),
+  servedPath: getServedPath(resolveRoot('package.json')),
 };
 
 // @remove-on-eject-begin
@@ -102,20 +104,20 @@ module.exports = {
   appBuild: resolveApp('build'),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
-  appIndexJs: resolveModule(resolveApp, 'src/index'),
-  appPackageJson: resolveApp('package.json'),
-  appSrc: resolveApp('src'),
+  appIndexJs: resolveModule(resolveApp, 'index'),
+  appPackageJson: resolveRoot('package.json'),
+  appSrc: resolveApp('.'),
   appTsConfig: resolveApp('tsconfig.json'),
-  yarnLockFile: resolveApp('yarn.lock'),
-  testsSetup: resolveModule(resolveApp, 'src/setupTests'),
-  proxySetup: resolveApp('src/setupProxy.js'),
-  appNodeModules: resolveApp('node_modules'),
-  publicUrl: getPublicUrl(resolveApp('package.json')),
-  servedPath: getServedPath(resolveApp('package.json')),
+  yarnLockFile: resolveRoot('yarn.lock'),
+  testsSetup: resolveModule(resolveApp, 'setupTests'),
+  proxySetup: resolveApp('setupProxy.js'),
+  appNodeModules: resolveRoot('node_modules'),
+  publicUrl: getPublicUrl(resolveRoot('package.json')),
+  servedPath: getServedPath(resolveRoot('package.json')),
   // These properties only exist before ejecting:
   ownPath: resolveOwn('.'),
   ownNodeModules: resolveOwn('node_modules'), // This is empty on npm 3
-  appTypeDeclarations: resolveApp('src/react-app-env.d.ts'),
+  appTypeDeclarations: resolveApp('types/react-app-env.d.ts'),
   ownTypeDeclarations: resolveOwn('lib/react-app.d.ts'),
 };
 
