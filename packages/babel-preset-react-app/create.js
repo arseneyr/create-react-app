@@ -180,6 +180,8 @@ module.exports = function(api, opts, env) {
       isEnvTest &&
         // Transform dynamic import to require
         require('babel-plugin-dynamic-import-node'),
+      // Remove idx() calls
+      isEnvProduction && require('babel-plugin-idx'),
     ].filter(Boolean),
     overrides: [
       isFlowEnabled && {

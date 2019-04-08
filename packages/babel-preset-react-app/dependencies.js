@@ -126,6 +126,7 @@ module.exports = function(api, opts) {
       isEnvTest &&
         // Transform dynamic import to require
         require('babel-plugin-transform-dynamic-import').default,
+      isEnvProduction && require('babel-plugin-idx').default,
     ].filter(Boolean),
   };
 };
