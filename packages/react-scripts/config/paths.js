@@ -86,12 +86,13 @@ module.exports = {
   appPackageJson: resolveRoot('package.json'),
   appSrc: resolveApp('.'),
   appTsConfig: resolveApp('tsconfig.json'),
-  yarnLockFile: resolveRoot('yarn.lock'),
+  appJsConfig: resolveApp('jsconfig.json'),
+  yarnLockFile: resolveApp('yarn.lock'),
   testsSetup: resolveModule(resolveApp, 'setupTests'),
   proxySetup: resolveApp('setupProxy.js'),
-  appNodeModules: resolveRoot('node_modules'),
-  publicUrl: getPublicUrl(resolveRoot('package.json')),
-  servedPath: getServedPath(resolveRoot('package.json')),
+  appNodeModules: resolveApp('node_modules'),
+  publicUrl: getPublicUrl(resolveApp('package.json')),
+  servedPath: getServedPath(resolveApp('package.json')),
 };
 
 // @remove-on-eject-begin
@@ -108,12 +109,13 @@ module.exports = {
   appPackageJson: resolveRoot('package.json'),
   appSrc: resolveApp('.'),
   appTsConfig: resolveApp('tsconfig.json'),
-  yarnLockFile: resolveRoot('yarn.lock'),
+  appJsConfig: resolveApp('jsconfig.json'),
+  yarnLockFile: resolveApp('yarn.lock'),
   testsSetup: resolveModule(resolveApp, 'setupTests'),
   proxySetup: resolveApp('setupProxy.js'),
-  appNodeModules: resolveRoot('node_modules'),
-  publicUrl: getPublicUrl(resolveRoot('package.json')),
-  servedPath: getServedPath(resolveRoot('package.json')),
+  appNodeModules: resolveApp('node_modules'),
+  publicUrl: getPublicUrl(resolveApp('package.json')),
+  servedPath: getServedPath(resolveApp('package.json')),
   // These properties only exist before ejecting:
   ownPath: resolveOwn('.'),
   ownNodeModules: resolveOwn('node_modules'), // This is empty on npm 3
@@ -142,6 +144,7 @@ if (
     appPackageJson: resolveOwn('package.json'),
     appSrc: resolveOwn('template/src'),
     appTsConfig: resolveOwn('template/tsconfig.json'),
+    appJsConfig: resolveOwn('template/jsconfig.json'),
     yarnLockFile: resolveOwn('template/yarn.lock'),
     testsSetup: resolveModule(resolveOwn, 'template/src/setupTests'),
     proxySetup: resolveOwn('template/src/setupProxy.js'),
