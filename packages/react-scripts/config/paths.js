@@ -91,8 +91,8 @@ module.exports = {
   testsSetup: resolveModule(resolveApp, 'setupTests'),
   proxySetup: resolveApp('setupProxy.js'),
   appNodeModules: resolveApp('node_modules'),
-  publicUrl: getPublicUrl(resolveApp('package.json')),
-  servedPath: getServedPath(resolveApp('package.json')),
+  publicUrl: getPublicUrl(resolveRoot('package.json')),
+  servedPath: getServedPath(resolveRoot('package.json')),
 };
 
 // @remove-on-eject-begin
@@ -114,8 +114,8 @@ module.exports = {
   testsSetup: resolveModule(resolveApp, 'setupTests'),
   proxySetup: resolveApp('setupProxy.js'),
   appNodeModules: resolveApp('node_modules'),
-  publicUrl: getPublicUrl(resolveApp('package.json')),
-  servedPath: getServedPath(resolveApp('package.json')),
+  publicUrl: getPublicUrl(resolveRoot('package.json')),
+  servedPath: getServedPath(resolveRoot('package.json')),
   // These properties only exist before ejecting:
   ownPath: resolveOwn('.'),
   ownNodeModules: resolveOwn('node_modules'), // This is empty on npm 3
