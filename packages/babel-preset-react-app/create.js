@@ -193,6 +193,7 @@ module.exports = function(api, opts, env) {
       isEnvTest &&
         // Transform dynamic import to require
         require('babel-plugin-dynamic-import-node'),
+      require('@babel/plugin-proposal-optional-chaining'),
     ].filter(Boolean),
     overrides: [
       isFlowEnabled && {
